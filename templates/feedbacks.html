@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Users</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<a  onclick="window.location.href='{% url 'admin_home' %}'" class="btn btn-secondary">
+    <i class="fas fa-arrow-left"></i>
+</a>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    .container {
+        position: relative;
+        width: 80%;
+        margin: 50px auto;
+        background-color: #f2f2f2;
+        padding: 20px;
+        box-shadow: 5px 5px 10px #888888;
+    }
+
+    .button-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .button {
+        padding: 10px;
+        background-color: #4154f1;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body style="
+background-image: url('https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature.jpg?sfvrsn=64942d53_4');
+background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
+
+<section id="manage">
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12" id="history">
+              
+                    <div style="color:red; text-align:center;font-size: 25px;;">
+                        {% if messages %}
+                            {% for msg in messages %}
+                                    {{ msg }}
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                <div class="card">
+                    <h5 class="card-title" style="font-size: 40px;color:black;">
+                        <center >Feedbacks</h5></center>
+                    <div class="search-container">
+                        <label for="search" >Find User:</label>
+                        <input type="text"  id="search" placeholder="Search Here">
+                        <button  onclick="filterBySearch()">Search</button>
+                    </div>
+<style>
+.search-container {
+display: flex;
+align-items: center;
+justify-content: flex-end; 
+}
+
+.search-container label,
+.search-container input,
+.search-container button {
+margin-left: 5px; 
+}
+
+</style>   
+                    <div class="card-body">
+
+
+   
+
+<script>
+    function filterBySearch() {
+    var query = $("#search").val().toLowerCase();
+
+    $("#dataTable tbody tr").each(function () {
+        var found = false;
+        $(this).find("td").each(function () {
+            var cellData = $(this).text().toLowerCase();
+            if (cellData.includes(query)) {
+                found = true;
+                return false; 
+            }
+        });
+        if (found) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+}
+
+</script>
+
+                        <h5 class="card-title"></h5>
+                        <div class="text-end" >
+                         
+                         
+
+
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table datatable" id="dataTable">
+                                <thead>
+                                    <tr >
+                                        <th>Name</th>
+                                        <th>Comments</th>
+                                        <th>Rating</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for feedback in feedbacks %}
+                                    <tr >
+                                        <td>{{ feedback.registration.user.username }}</td>
+                                        <td>{{ feedback.comments }}</td>
+                                        <td>{{ feedback.rating }}</td>
+                                        <td>
+                                            <a  href= "{% url 'delete_feedback' feedback_id=feedback.id %}" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                
+                                </tbody>
+                            </table>
+
+
+                           
+                            
+                  
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".datepicker").datepicker({
+            dateFormat: 'M. dd, yy',
+        });
+    });
+
+    function filterTable() {
+        var fromDate = $("#fromDate").val();
+        var toDate = $("#toDate").val();
+
+        $("#dataTable tbody tr").each(function () {
+            var dateCell = $(this).find("td:eq(3)").text();
+            var fromDateObj = new Date(fromDate);
+            var toDateObj = new Date(toDate);
+            var dateObj = new Date(dateCell);
+            if (dateObj >= fromDateObj && dateObj <= toDateObj) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
+
+    function showAllRows() {
+        $("#dataTable tbody tr").show();
+    }
+</script>
+<center>
+         
+    <style>
+     
+         .content {
+             flex: 1;
+         }
+     
+         .footer {
+             background-color: #923993;
+             color: white;
+             padding: 10px 0;
+             position: fixed;
+             bottom: 0;
+             width: 100%;
+             text-align: center;
+         }
+     </style>
+     </head>
+     <body>
+     
+     <div class="content">
+     </div>
+     
+     <center>
+        <footer id="footer" class="footer">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Fruitition</span></strong>. All Rights Reserved
+          </div>
+      
+          <div class="credits">
+             Designed by <a href="" style="color:white;">Amina Ashraf,  
+              Anu Anna Baby, 
+              Elsa Anju Siby</a>
+          </div>
+        </footer>
+    </center>
+    <style>
+    footer {
+      font-size: 12px;
+      padding: 20px 0;
+      background: #dddddd;
+      margin-top: 10px;
+    }
+    
+    footer .col-sm-8 {
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    footer ul {
+      list-style: none;
+      cursor: pointer;
+    }
+    
+    footer li img {
+      width: 32px;
+      height: 32px;
+      padding: 4px;
+     background-color: #000000;
+    }
+    </style>
+
+     
+   </center>
+</body>
+</html>

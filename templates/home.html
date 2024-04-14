@@ -1,0 +1,1183 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="fixed-top">
+  <header class="topbar">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="social-network">
+              <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-pinterest"></i></a></li>
+              <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+  </header>
+  <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" style="text-transform: uppercase;color:black;"> Fruitition</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#aboutus">About</a>
+          </li>
+
+         <li class="nav-item">
+            <a class="nav-link" href="#fruits">Fruits</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contactus">Contact</a>
+          </li>
+       
+          <li class="nav-item">
+            <a class="nav-link" style="cursor:pointer;" onclick="window.location.href='{% url 'login' %}'">Login / Sign up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<style>
+  body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #f7f7f7;
+}
+.navbar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+
+.topbar{
+  background-color: #212529;
+  padding: 0;
+}
+
+.topbar .container .row {
+  margin:-7px;
+  padding:0;
+}
+
+.topbar .container .row .col-md-12 { 
+  padding:0;
+}
+
+.topbar p{
+  margin:0;
+  display:inline-block;
+  font-size: 13px;
+  color: #f1f6ff;
+}
+
+.topbar p > i{
+  margin-right:5px;
+}
+.topbar p:last-child{
+  text-align:right;
+} 
+
+header .navbar {
+    margin-bottom: 0;
+}
+
+.topbar li.topbar {
+    display: inline;
+    padding-right: 18px;
+    line-height: 52px;
+    transition: all .3s linear;
+}
+
+.topbar li.topbar:hover {
+    color: #1bbde8;
+}
+
+.topbar ul.info i {
+    color: #131313;
+    font-style: normal;
+    margin-right: 8px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+
+.topbar ul.info li {
+    float: right;
+    padding-left: 30px;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 44px;
+}
+
+.topbar ul.info i span {
+    color: #aaa;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 50px;
+    padding-left: 18px;
+}
+
+ul.social-network {
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+ul.social-network li {
+  border:none;  
+  margin:0;
+}
+
+ul.social-network li i {
+  margin:0;
+}
+
+ul.social-network li {
+    display:inline;
+    margin: 0 5px;
+    border: 0px solid #2D2D2D;
+    padding: 5px 0 0;
+    width: 32px;
+    display: inline-block;
+    text-align: center;
+    height: 32px;
+    vertical-align: baseline;
+    color: #000;
+}
+
+ul.social-network {
+  list-style: none;
+  margin: 5px 0 10px -25px;
+  float: right;
+}
+
+.waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
+    will-change: opacity, transform;
+    transition: .3s ease-out;
+    color: #fff;
+}
+a {
+  color: #0a0a0a;
+  text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+.bg-image-full {
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.bg-dark {
+    background-color: #222!important;
+}
+
+.mx-background-top-linear {
+    background: -webkit-linear-gradient(45deg, #54d400 48%, #1b1e21 48%);
+    background: -webkit-linear-gradient(left, #54d400 48%, #1b1e21 48%);
+    background: linear-gradient(45deg, #54d400 48%, #1b1e21 48%);
+}
+
+</style>
+
+<br><br>
+<br>
+
+<div class="header-banner">
+  <img class="banner-image" src="https://www.euroschoolindia.com/wp-content/uploads/2023/10/importance-of-eating-a-variety-of-fruits-for-kids-health-jpg.webp" alt="Banner Image 1">
+  <img class="banner-image" src="https://cdn.shopify.com/s/files/1/0522/4149/8278/products/Greenapple_600x.jpg" alt="Banner Image 2">
+  <img class="banner-image" src="https://c1.wallpaperflare.com/preview/15/781/298/fruit-apple-banana-orange.jpg" alt="Banner Image 3">
+
+</div>
+
+<style>
+  .header-banner {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 300px; 
+  }
+
+  .banner-image {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+  }
+
+  .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1;
+  }
+
+  .prev {
+      left: 10px;
+  }
+
+  .next {
+      right: 10px;
+  }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function(){
+      var currentIndex = 0;
+      var images = $('.banner-image');
+      var totalImages = images.length;
+
+      function showImage(index) {
+          $(images).hide(); 
+          $(images[index]).fadeIn(); 
+          currentIndex = index; 
+      }
+
+      function nextImage() {
+          var nextIndex = (currentIndex + 1) % totalImages; 
+          showImage(nextIndex); 
+      }
+
+      function prevImage() {
+          var prevIndex = (currentIndex - 1 + totalImages) % totalImages; 
+          showImage(prevIndex); 
+      }
+
+ 
+      showImage(0);
+
+    
+      setInterval(nextImage, 3000);
+  });
+</script>
+
+
+
+<br>
+</header>
+<div style="color:red; text-align:center;">
+  {% if messages %}
+      {% for msg in messages %}
+              {{ msg }}
+      {% endfor %}
+  {% endif %}
+  </div>
+<marquee behavior="scroll" direction="left" scrollamount="4" style="font-size: 18px; color: black;">
+  Adulteration in fruits refers to the unauthorized addition or substitution of inferior or harmful substances to fruits, compromising their quality, safety, and nutritional value
+</marquee>
+
+
+  <style>
+
+    #aboutus {
+      background-color: #f8f9fa;
+      padding: 50px 0;
+      text-align: center;
+    }
+    .about-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about-text {
+      flex: 1;
+      text-align: left;
+      padding: 20px;
+    }
+    .about-text p.small {
+      font-size: 18px;
+      color: #6c757d;
+    }
+    .about-text h2 {
+      font-size: 32px;
+      color: #343a40;
+    }
+    .about-text p {
+      font-size: 18px;
+      color: #6c757d;
+      line-height: 1.6;
+    }
+    .about-img img {
+      max-width: 100%;
+      height: auto;
+    }
+    .about-img {
+      flex: 1;
+      padding: 20px;
+    }
+    .about-img img {
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    ul li a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+
+<section id="aboutus">
+  <div class="about-wrapper container">
+    <div class="about-text">
+      <h2>Welcome to Our Project</h2>
+      <br>
+      <h5>Project Title:</h5>
+      <p>Detection of Adulteration in Fruits</p>
+
+
+      <p>
+        <h5>Team Members:</h5>
+        <ul>
+          <li>Amina Ashraf - <a href="mailto:aminaash544@gmail.com">aminaash544@gmail.com</a></li>
+          <li>Anu Anna Baby - <a href="mailto:anuanna0204@gmail.com">anuanna0204@gmail.com</a></li>
+          <li>Elsa Anju Siby - <a href="mailto:elsaanjusiby@gmail.com">elsaanjusiby@gmail.com</a></li>
+        </ul>
+
+    
+        <h5>Minor Project:</h5>
+        <p>Sixth Semester, Viswajyothi College of Engineering, Muvattupuzha, Ernakulam</p>
+      </p>
+    </div>
+    <div class="about-img">
+      <img src="https://www.popsci.com/uploads/2019/03/18/NK7LBOTB4DCKYAS2CXMEDE4XVE.jpg?auto=webp&width=785&height=604.6953125" alt="food" />
+    </div>
+  </div>
+</section>
+
+
+
+ 
+ 
+  <section id="fruits">
+    <h2 class="food-menu-heading">Have a Look</h2><br>
+<div class="food-menu-itemg">
+<div class="food-menu-containerg containerg">
+
+    <div class="food-img-containerg" >
+
+      <div class="food-img">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNG0Ctk_tuG3MQwAFwIK6a1Vey7TOwb70ne04GomeVIw&s" height="300px" alt="" />
+        <img src="https://media.post.rvohealth.io/wp-content/uploads/2022/07/ripe-brown-banana-bananas-1200x628-facebook-1200x628.jpg" height="300px" alt="" />
+        <img src="https://www.stuff.co.nz/media/images/9Tzi8ywRz924XE3uHaD6DfGZQfjEdZd7oKlsiR53VLHvSZExpMzuRmKdwHbkL9Pksq6u9QYlqpIB0dF5pARfgh70VsAbnzhS7h0nIqwGgi1RKSbmHFeB%2Fucl8SsQEjHPxJ5gzNg9R%2FYGrgnFSvo2+FSkSQNfLayO9rc8wLL%2FxuvrQqFoff4lum72t40hb+yLciQ%2FxZYTUdyKd4m1G0bbYg==" height="300px" alt="" />
+        <img src="https://www.fueledwithfood.com/wp-content/uploads/2020/12/bunch-of-bananas-1024x682.jpg" height="300px" alt="" />
+     
+       
+       <img src="https://health.anu.edu.au/files/styles/science_16x9_1200/public/pexels-freestocksorg-159240%20%28003%29_red%20and%20green%20apple.jpg?itok=IJNCoeJl" height="300px" alt="" />
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNG0Ctk_tuG3MQwAFwIK6a1Vey7TOwb70ne04GomeVIw&s" height="300px" alt="" />
+       <img src="https://media.post.rvohealth.io/wp-content/uploads/2022/07/ripe-brown-banana-bananas-1200x628-facebook-1200x628.jpg" height="300px" alt="" />
+       <img src="https://www.stuff.co.nz/media/images/9Tzi8ywRz924XE3uHaD6DfGZQfjEdZd7oKlsiR53VLHvSZExpMzuRmKdwHbkL9Pksq6u9QYlqpIB0dF5pARfgh70VsAbnzhS7h0nIqwGgi1RKSbmHFeB%2Fucl8SsQEjHPxJ5gzNg9R%2FYGrgnFSvo2+FSkSQNfLayO9rc8wLL%2FxuvrQqFoff4lum72t40hb+yLciQ%2FxZYTUdyKd4m1G0bbYg==" height="300px" alt="" />
+       <img src="https://www.fueledwithfood.com/wp-content/uploads/2020/12/bunch-of-bananas-1024x682.jpg" height="300px" alt="" />
+    
+      
+      <img src="https://health.anu.edu.au/files/styles/science_16x9_1200/public/pexels-freestocksorg-159240%20%28003%29_red%20and%20green%20apple.jpg?itok=IJNCoeJl" height="300px" alt="" />
+     
+      </div>
+ 
+    </div>
+  </div>
+</div>
+</section>
+
+<style>
+.food-menu-containerg {
+overflow: hidden;
+}
+
+.food-menu-itemg {
+width: 100%;
+overflow-x: auto;
+white-space: nowrap;
+-webkit-overflow-scrolling: touch; 
+}
+
+.food-img-containerg {
+display: inline-block;
+white-space: nowrap;
+animation: scrollLeft 70s linear infinite;
+}
+
+.food-imgg{
+display: inline-block;
+margin-right: 10px; 
+}
+
+@keyframes scrollLeft {
+0% {
+  transform: translateX(0);
+}
+100% {
+  transform: translateX(-100%);
+}
+}
+
+</style>
+<br><br>
+
+    <section id="contactus">
+      <div class="contact-container container">
+        <div class="contact-img">
+          <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1j0kdb.img?w=768&h=511&m=6" alt="" />
+        </div>
+    
+        <div class="form-container">
+          <h2>Contact Us</h2>
+          <form class="mb-5" method="post" action="{% url 'mailing' %}" id="contactForm">
+            {% csrf_token %}
+            <input type="text" placeholder="Your Name" name="name" id="name" required>
+            <input type="email" placeholder="E-Mail" name="email" id="email" required>
+            <input type="text" placeholder="Mobile Number" name="phone" id="phone" required>
+            <textarea cols="30" rows="6" placeholder="Type Your Message" name="msg" id="message" required></textarea>
+            <input style="background-color: #54d400;color:white;" type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    <center>
+      <footer id="footer" class="footer">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Fruitition</span></strong>. All Rights Reserved
+        </div>
+    
+        <div class="credits">
+           Designed by <a href="">Amina Ashraf,  
+            Anu Anna Baby, 
+            Elsa Anju Siby</a>
+        </div>
+      </footer>
+  </center>
+  <style>
+  footer {
+    font-size: 12px;
+    padding: 20px 0;
+    background: #dddddd;
+    margin-top: 10px;
+  }
+  
+  footer .col-sm-8 {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  footer ul {
+    list-style: none;
+    cursor: pointer;
+  }
+  
+  footer li img {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+   background-color: #000000;
+  }
+  </style>
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+  
+    $("a").on("click", function (event) {
+
+      if (this.hash !== "") {
+
+        event.preventDefault();
+
+
+        var hash = this.hash;
+
+  
+        $("html, body").animate(
+          {
+            scrollTop: $(hash).offset().top,
+          },
+          800,
+          function () {
+
+            window.location.hash = hash;
+          }
+        );
+      } 
+    });
+  });
+</script>
+</html>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+.container {
+max-width: 1200px;
+width: 90%;
+margin: auto;
+}
+
+.btn {
+display: inline-block;
+padding: 0.5em 1.5em;
+text-decoration: none;
+border-radius: 50px;
+cursor: pointer;
+outline: none;
+margin-top: 1em;
+text-transform: uppercase;
+font-weight: small;
+}
+
+.btn-primary {
+color: #fff;
+background: #16a083;
+}
+
+.btn-primary:hover {
+background: #117964;
+transition: background 0.3s ease-in-out;
+}
+
+
+
+.menu-items {
+order: 2;
+display: flex;
+}
+
+.menu-items li {
+list-style: none;
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+font-size: 1.2rem;
+}
+
+.menu-items a {
+text-decoration: none;
+color: #444;
+font-weight: 500;
+transition: color 0.3s ease-in-out;
+}
+
+.menu-items a:hover {
+color: #117964;
+transition: color 0.3s ease-in-out;
+}
+
+.logo {
+order: 1;
+font-size: 2.3rem;
+margin-bottom: 0.5rem;
+}
+
+
+
+.showcase-area {
+height: 50vh;
+background: linear-gradient(
+    rgba(240, 240, 240, 0.144),
+    rgba(255, 255, 255, 0.336)
+  ),
+  url("https://www.thedailymeal.com/img/gallery/what-a-beginner-needs-to-know-about-ordering-shawarma/intro-1681948540.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.showcase-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%;
+font-size: 1.6rem;
+}
+
+.main-title {
+text-transform: uppercase;
+margin-top: 1.5em;
+}
+
+
+
+#about {
+padding: 50px 0;
+background: #f5f5f7;
+}
+
+.about-wrapper {
+display: flex;
+flex-wrap: wrap;
+}
+
+#about h2 {
+font-size: 2.3rem;
+}
+
+#about p {
+font-size: 1.2rem;
+color: #555;
+}
+
+#about .small {
+font-size: 1.2rem;
+color: #666;
+font-weight: 600;
+}
+
+.about-img {
+flex: 1 1 400px;
+padding: 30px;
+transform: translateX(150%);
+animation: about-img-animation 1s ease-in-out forwards;
+}
+
+@keyframes about-img-animation {
+100% {
+  transform: translate(0);
+}
+}
+
+.about-text {
+flex: 1 1 400px;
+padding: 30px;
+margin: auto;
+transform: translate(-150%);
+animation: about-text-animation 1s ease-in-out forwards;
+}
+
+@keyframes about-text-animation {
+100% {
+  transform: translate(0);
+}
+}
+
+.about-img img {
+display: block;
+height: 400px;
+max-width: 100%;
+margin: auto;
+object-fit: cover;
+object-position: right;
+}
+
+
+#food {
+padding: 5rem 0 10rem 0;
+}
+
+#food h2 {
+text-align: center;
+font-size: 2.5rem;
+font-weight: 400;
+margin-bottom: 40px;
+text-transform: uppercase;
+color: #555;
+}
+
+.food-container {
+display: flex;
+justify-content: space-between;
+}
+
+.food-container img {
+display: block;
+width: 100%;
+margin: auto;
+max-height: 300px;
+object-fit: cover;
+object-position: center;
+}
+
+.img-container {
+margin: 0 1rem;
+position: relative;
+}
+
+.img-content {
+position: absolute;
+top: 70%;
+left: 50%;
+transform: translate(-50%, -50%);
+opacity: 0;
+z-index: 2;
+text-align: center;
+transition: all 0.3s ease-in-out 0.1s;
+}
+
+.img-content h3 {
+color: #fff;
+font-size: 2.2rem;
+}
+
+.img-content a {
+font-size: 1.2rem;
+}
+
+.img-container::after {
+content: "";
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.871);
+opacity: 0;
+z-index: 1;
+
+transform: scaleY(0);
+transform-origin: 100% 100%;
+transition: all 0.3s ease-in-out;
+}
+
+.img-container:hover::after {
+opacity: 1;
+transform: scaleY(1);
+}
+
+.img-container:hover .img-content {
+opacity: 1;
+top: 40%;
+}
+
+
+.food-menu-heading {
+text-align: center;
+font-size: 3.4rem;
+font-weight: 400;
+color: #666;
+}
+
+.food-menu-container {
+display: flex;
+flex-wrap: wrap;
+padding: 50px 0px 30px 0px;
+}
+
+.food-menu-container img {
+display: block;
+width: 250px;
+height: 250px;
+border-radius: 50%;
+object-fit: cover;
+object-position: center;
+}
+
+.food-menu-item {
+display: flex;
+flex: 1 1 600px;
+justify-content: space-evenly;
+margin-bottom: 3rem;
+}
+
+.food-description {
+margin: auto 1.5rem;
+}
+
+.font-title {
+font-size: 1.8rem;
+font-weight: 400;
+color: #444;
+}
+
+.food-description p {
+font-size: 1.4rem;
+color: #555;
+font-weight: 500;
+}
+
+.food-description .food-price {
+color: #117964;
+font-weight: 700;
+}
+
+
+
+#testimonials {
+padding: 5rem 0;
+background: rgba(243, 243, 243);
+}
+
+.testimonial-title {
+text-align: center;
+font-size: 2.8rem;
+font-weight: 400;
+color: #555;
+}
+
+.testimonial-container {
+display: flex;
+justify-content: space-between;
+font-size: 1.4rem;
+padding: 1rem;
+}
+
+.testimonial-box .checked {
+color: #ff9529;
+}
+
+.testimonial-box .testimonial-text {
+margin: 1rem 0;
+color: #444;
+}
+
+.testimonial-box {
+text-align: center;
+padding: 1rem;
+}
+
+.customer-photo img {
+display: block;
+width: 150px;
+height: 150px;
+object-fit: cover;
+object-position: center;
+border-radius: 50%;
+margin: auto;
+}
+
+
+#contact {
+padding: 5rem 0;
+background: rgb(226, 226, 226);
+}
+
+.contact-container {
+display: flex;
+background: #fff;
+}
+
+.contact-img {
+width: 50%;
+}
+
+.contact-img img {
+display: block;
+height: 400px;
+width: 100%;
+object-position: center;
+object-fit: cover;
+}
+
+.form-container {
+padding: 1rem;
+width: 50%;
+margin: auto;
+}
+
+.form-container input {
+display: block;
+width: 100%;
+border: none;
+border-bottom: 2px solid #ddd;
+padding: 1rem 0;
+box-shadow: none;
+outline: none;
+margin-bottom: 1rem;
+color: #444;
+font-weight: 500;
+}
+
+.form-container textarea {
+display: block;
+width: 100%;
+border: none;
+border-bottom: 2px solid #ddd;
+color: #444;
+outline: none;
+padding: 1rem 0;
+resize: none;
+}
+
+.form-container h2 {
+font-size: 2.7rem;
+font-weight: 500;
+color: #444;
+margin-bottom: 1rem;
+margin-top: -1.2rem;
+}
+
+.form-container a {
+font-size: 1.3rem;
+}
+
+#footer h2 {
+text-align: center;
+font-size: 1.8rem;
+padding: 2.6rem;
+font-weight: 500;
+color: #fff;
+background: rgb(65, 65, 65);
+}
+
+
+
+@media (max-width: 768px) {
+.navbar {
+  opacity: 0.95;
+}
+
+.navbar-container input[type="checkbox"],
+.navbar-container .hamburger-lines {
+  display: block;
+}
+
+.navbar-container {
+  display: block;
+  position: relative;
+  height: 64px;
+}
+
+.navbar-container input[type="checkbox"] {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 30px;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+  opacity: 0;
+}
+
+.navbar-container .hamburger-lines {
+  display: block;
+  height: 23px;
+  width: 35px;
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navbar-container .hamburger-lines .line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #333;
+}
+
+.navbar-container .hamburger-lines .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.navbar-container .hamburger-lines .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-container .hamburger-lines .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.navbar .menu-items {
+  padding-top: 100px;
+  background: #fff;
+  height: 100vh;
+  max-width: 300px;
+  transform: translate(-150%);
+  display: flex;
+  flex-direction: column;
+  margin-left: -40px;
+  padding-left: 50px;
+  transition: transform 0.5s ease-in-out;
+  box-shadow: 5px 0px 10px 0px #aaa;
+}
+
+.navbar .menu-items li {
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 2rem;
+}
+
+.navbar-container input[type="checkbox"]:checked ~ .menu-items {
+  transform: translateX(0);
+}
+
+.navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+  transform: rotate(35deg);
+}
+
+.navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+  transform: scaleY(0);
+}
+
+.navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+  transform: rotate(-35deg);
+}
+
+
+
+.food-container {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.food-type:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.food-type {
+  box-shadow: 5px 5px 10px 0 #aaa;
+}
+
+.img-container {
+  margin: 0;
+}
+}
+
+@media (max-width: 500px) {
+html {
+  font-size: 65%;
+}
+
+.navbar .menu-items li{
+    font-size: 1.6rem;
+}
+
+.testimonial-container {
+  flex-direction: column;
+  text-align: center;
+}
+
+.food-menu-container img {
+  margin: auto;
+}
+
+.food-menu-item {
+  flex-direction: column;
+  text-align: center;
+}
+
+.form-container {
+  width: 90%;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-img {
+  width: 90%;
+  margin: 3rem auto;
+}
+
+.logo {
+  position: absolute;
+  top: 06px;
+  right: 15px;
+  font-size: 3rem;
+}
+
+.navbar .menu-items li {
+  margin-bottom: 2.5rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+.img-container h3 {
+  font-size: 1.5rem;
+}
+
+.img-container .btn {
+  font-size: 0.7rem;
+}
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+.showcase-area {
+  height: 50vmax;
+}
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+

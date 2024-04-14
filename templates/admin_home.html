@@ -1,0 +1,937 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <title>Fruitition</title>
+  <meta content="B Tech Project" name="description">
+  <meta content="" name="keywords">
+  <link href="https://play-lh.googleusercontent.com/_IA1p-kzpgxWMEu_s" rel="icon">
+
+  <link href="https://play-lh.googleusercontent.comtvm-5K3Aainu-U0ClZYS8ug-4stKjZu_s" rel="icon">
+  <link href="https://play-lh.googleusercontoutaCf9gx-U0ClZYS8ug-4stKjZu_s" rel="icon">
+
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="static/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="" class="logo d-flex align-items-center">
+        <img src="httpsaCf9gxWME1fc76UpoLhtvm-5K3Aainu-U0ClZYS8ug-4stKjZu_s" alt="">
+        <span class="d-none d-lg-block" style="font-size:20px;">Fruitition</span>
+      </a></div>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+    <div class="search-bar">
+     <p style="font-size:20px;">Welcome </p>
+    </div>
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+
+        {% for i in gtt %}
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+      
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{i.First_name}} {{i.Last_name}}</span>
+
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+
+              <h6>{{i.First_name}} {{i.Last_name}}</h6>
+              <span>Administrator</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'adminn_details' %}" >
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'edit_admin' %}" >
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}" >
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+      </ul>
+    </nav>     
+    {% endfor %}
+  </header>
+
+  <aside id="sidebar" class="sidebar" style="background: linear-gradient(113.5deg, rgb(234, 234, 234) 22.3%, rgb(201, 234, 211) 56.6%, rgb(255, 180, 189) 90.9%);">
+
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="#dash" >
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+       
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'v_feedback' %}" >
+          <i class="bi bi-person"></i>
+          <span>Feedbacks</span>
+        </a>
+      </li>
+
+
+
+         <li class="nav-item">
+        <a class="nav-link " href="{% url 'upload_images' %}" >
+          <i class="bi bi-arrow-up-circle"></i>
+          <span>Uploads</span>
+        </a>
+      </li>
+
+
+
+  
+      <li class="nav-heading" style="color:black;">Manage Accounts</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'adminn_details' %}" >
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{%url 'view' %}" >
+          <i class="bi bi-person"></i>
+          <span>Registered Users</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'register_employee' %}" >
+          <i class="bi bi-card-list"></i>
+          <span>Register User</span>
+        </a>
+      </li>
+
+
+
+    </ul>
+
+  </aside>
+  <main id="main" class="main" >
+
+    <div class="pagetitle" id="dash">
+      <h1 style="color:black;" >Dashboard &nbsp;&nbsp;&nbsp;<span style="color:green;">
+
+          {% if messages %}
+            {% for msg in messages %}
+                {{ msg }}
+            {% endfor %}
+          {% endif %}
+     </span></h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="" style="color:black;">Home</a></li>
+          <li class="breadcrumb-item active" style="color:black;">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="section dashboard"  style="	background: url('static/bg.jpg');">
+      <div class="row">
+
+
+   
+
+
+                 
+                
+<div class="header-banner">
+  <img class="banner-image" src="https://www.euroschoolindia.com/wp-content/uploads/2023/10/importance-of-eating-a-variety-of-fruits-for-kids-health-jpg.webp" alt="Banner Image 1">
+  <img class="banner-image" src="https://cdn.shopify.com/s/files/1/0522/4149/8278/products/Greenapple_600x.jpg" alt="Banner Image 2">
+  <img class="banner-image" src="https://c1.wallpaperflare.com/preview/15/781/298/fruit-apple-banana-orange.jpg" alt="Banner Image 3">
+
+</div>
+
+<style>
+  .header-banner {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 300px; 
+  }
+
+  .banner-image {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+  }
+
+  .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1;
+  }
+
+  .prev {
+      left: 10px;
+  }
+
+  .next {
+      right: 10px;
+  }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function(){
+      var currentIndex = 0;
+      var images = $('.banner-image');
+      var totalImages = images.length;
+
+      function showImage(index) {
+          $(images).hide(); 
+          $(images[index]).fadeIn(); 
+          currentIndex = index; 
+      }
+
+      function nextImage() {
+          var nextIndex = (currentIndex + 1) % totalImages; 
+          showImage(nextIndex); 
+      }
+
+      function prevImage() {
+          var prevIndex = (currentIndex - 1 + totalImages) % totalImages; 
+          showImage(prevIndex); 
+      }
+
+ 
+      showImage(0);
+
+    
+      setInterval(nextImage, 3000);
+  });
+</script>
+
+
+
+<br>
+</header><marquee behavior="scroll" direction="left" scrollamount="4" style="font-size: 18px; color: black;">
+  Adulteration in fruits refers to the unauthorized addition or substitution of inferior or harmful substances to fruits, compromising their quality, safety, and nutritional value
+</marquee>
+
+
+  <style>
+
+    #aboutus {
+      background-color: #f8f9fa;
+      padding: 50px 0;
+      text-align: center;
+    }
+    .about-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about-text {
+      flex: 1;
+      text-align: left;
+      padding: 20px;
+    }
+    .about-text p.small {
+      font-size: 18px;
+      color: black;
+    }
+    .about-text h2 {
+      font-size: 32px;
+      color: black;
+    }
+    .about-text p {
+      font-size: 18px;
+      color: black;
+      line-height: 1.6;
+    }
+    .about-img img {
+      max-width: 100%;
+      height: auto;
+    }
+    .about-img {
+      flex: 1;
+      padding: 20px;
+    }
+    .about-img img {
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    ul li a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+
+<section id="aboutus">
+  <div class="about-wrapper container">
+    <div class="about-text">
+
+      <br>
+      <h5>Project Title:</h5>
+      <p>Detection of Adulteration in Fruits</p>
+
+
+      <p>
+        <h5>Team Members:</h5>
+        <ul>
+          <li>Amina Ashraf - <a href="mailto:aminaash544@gmail.com">aminaash544@gmail.com</a></li>
+          <li>Anu Anna Baby - <a href="mailto:anuanna0204@gmail.com">anuanna0204@gmail.com</a></li>
+          <li>Elsa Anju Siby - <a href="mailto:elsaanjusiby@gmail.com">elsaanjusiby@gmail.com</a></li>
+        </ul>
+
+    
+        <h5>Minor Project:</h5>
+        <p>Sixth Semester, Viswajyothi College of Engineering, Muvattupuzha, Ernakulam</p>
+      </p>
+    </div>
+    <div class="about-img">
+      <img src="https://www.popsci.com/uploads/2019/03/18/NK7LBOTB4DCKYAS2CXMEDE4XVE.jpg?auto=webp&width=785&height=604.6953125" alt="food" />
+    </div>
+  </div>
+</section>
+ 
+ 
+
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+  
+    $("a").on("click", function (event) {
+
+      if (this.hash !== "") {
+
+        event.preventDefault();
+
+
+        var hash = this.hash;
+
+  
+        $("html, body").animate(
+          {
+            scrollTop: $(hash).offset().top,
+          },
+          800,
+          function () {
+
+            window.location.hash = hash;
+          }
+        );
+      } 
+    });
+  });
+</script>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+.btn {
+display: inline-block;
+padding: 0.5em 1.5em;
+text-decoration: none;
+border-radius: 50px;
+cursor: pointer;
+outline: none;
+margin-top: 1em;
+text-transform: uppercase;
+font-weight: small;
+}
+
+.btn-primary {
+color: #fff;
+background: #16a083;
+}
+
+.btn-primary:hover {
+background: #117964;
+transition: background 0.3s ease-in-out;
+}
+
+
+
+.menu-items {
+order: 2;
+display: flex;
+}
+
+.menu-items li {
+list-style: none;
+margin-left: 1.5rem;
+margin-bottom: 0.5rem;
+font-size: 1.2rem;
+}
+
+.menu-items a {
+text-decoration: none;
+color: #444;
+font-weight: 500;
+transition: color 0.3s ease-in-out;
+}
+
+.menu-items a:hover {
+color: #117964;
+transition: color 0.3s ease-in-out;
+}
+
+.logo {
+order: 1;
+font-size: 2.3rem;
+margin-bottom: 0.5rem;
+}
+
+
+
+.showcase-area {
+height: 50vh;
+background: linear-gradient(
+    rgba(240, 240, 240, 0.144),
+    rgba(255, 255, 255, 0.336)
+  ),
+  url("at-a-beginner-needs-to-know-about-ordering-shawarma/intro-1681948540.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.showcase-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%;
+font-size: 1.6rem;
+}
+
+.main-title {
+text-transform: uppercase;
+margin-top: 1.5em;
+}
+
+
+
+#about {
+padding: 50px 0;
+background: #f5f5f7;
+}
+
+.about-wrapper {
+display: flex;
+flex-wrap: wrap;
+}
+
+#about h2 {
+font-size: 2.3rem;
+}
+
+#about p {
+font-size: 1.2rem;
+color: #555;
+}
+
+#about .small {
+font-size: 1.2rem;
+color: #666;
+font-weight: 600;
+}
+
+.about-img {
+flex: 1 1 400px;
+padding: 30px;
+transform: translateX(150%);
+animation: about-img-animation 1s ease-in-out forwards;
+}
+
+@keyframes about-img-animation {
+100% {
+  transform: translate(0);
+}
+}
+
+.about-text {
+flex: 1 1 400px;
+padding: 30px;
+margin: auto;
+transform: translate(-150%);
+animation: about-text-animation 1s ease-in-out forwards;
+}
+
+@keyframes about-text-animation {
+100% {
+  transform: translate(0);
+}
+}
+
+.about-img img {
+display: block;
+height: 400px;
+max-width: 100%;
+margin: auto;
+object-fit: cover;
+object-position: right;
+}
+
+
+#food {
+padding: 5rem 0 10rem 0;
+}
+
+#food h2 {
+text-align: center;
+font-size: 2.5rem;
+font-weight: 400;
+margin-bottom: 40px;
+text-transform: uppercase;
+color: #555;
+}
+
+.food-container {
+display: flex;
+justify-content: space-between;
+}
+
+.food-container img {
+display: block;
+width: 100%;
+margin: auto;
+max-height: 300px;
+object-fit: cover;
+object-position: center;
+}
+
+.img-container {
+margin: 0 1rem;
+position: relative;
+}
+
+.img-content {
+position: absolute;
+top: 70%;
+left: 50%;
+transform: translate(-50%, -50%);
+opacity: 0;
+z-index: 2;
+text-align: center;
+transition: all 0.3s ease-in-out 0.1s;
+}
+
+.img-content h3 {
+color: #fff;
+font-size: 2.2rem;
+}
+
+.img-content a {
+font-size: 1.2rem;
+}
+
+.img-container::after {
+content: "";
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.871);
+opacity: 0;
+z-index: 1;
+
+transform: scaleY(0);
+transform-origin: 100% 100%;
+transition: all 0.3s ease-in-out;
+}
+
+.img-container:hover::after {
+opacity: 1;
+transform: scaleY(1);
+}
+
+.img-container:hover .img-content {
+opacity: 1;
+top: 40%;
+}
+
+
+.food-menu-heading {
+text-align: center;
+font-size: 3.4rem;
+font-weight: 400;
+color: #666;
+}
+
+.food-menu-container {
+display: flex;
+flex-wrap: wrap;
+padding: 50px 0px 30px 0px;
+}
+
+.food-menu-container img {
+display: block;
+width: 250px;
+height: 250px;
+border-radius: 50%;
+object-fit: cover;
+object-position: center;
+}
+
+.food-menu-item {
+display: flex;
+flex: 1 1 600px;
+justify-content: space-evenly;
+margin-bottom: 3rem;
+}
+
+.food-description {
+margin: auto 1.5rem;
+}
+
+.font-title {
+font-size: 1.8rem;
+font-weight: 400;
+color: #444;
+}
+
+.food-description p {
+font-size: 1.4rem;
+color: #555;
+font-weight: 500;
+}
+
+.food-description .food-price {
+color: #117964;
+font-weight: 700;
+}
+
+
+
+#testimonials {
+padding: 5rem 0;
+background: rgba(243, 243, 243);
+}
+
+.testimonial-title {
+text-align: center;
+font-size: 2.8rem;
+font-weight: 400;
+color: #555;
+}
+
+.testimonial-container {
+display: flex;
+justify-content: space-between;
+font-size: 1.4rem;
+padding: 1rem;
+}
+
+.testimonial-box .checked {
+color: #ff9529;
+}
+
+.testimonial-box .testimonial-text {
+margin: 1rem 0;
+color: #444;
+}
+
+.testimonial-box {
+text-align: center;
+padding: 1rem;
+}
+
+.customer-photo img {
+display: block;
+width: 150px;
+height: 150px;
+object-fit: cover;
+object-position: center;
+border-radius: 50%;
+margin: auto;
+}
+
+
+#contact {
+padding: 5rem 0;
+background: rgb(226, 226, 226);
+}
+
+.contact-container {
+display: flex;
+background: #fff;
+}
+
+.contact-img {
+width: 50%;
+}
+
+.contact-img img {
+display: block;
+height: 400px;
+width: 100%;
+object-position: center;
+object-fit: cover;
+}
+
+.form-container {
+padding: 1rem;
+width: 50%;
+margin: auto;
+}
+
+.form-container input {
+display: block;
+width: 100%;
+border: none;
+border-bottom: 2px solid #ddd;
+padding: 1rem 0;
+box-shadow: none;
+outline: none;
+margin-bottom: 1rem;
+color: #444;
+font-weight: 500;
+}
+
+.form-container textarea {
+display: block;
+width: 100%;
+border: none;
+border-bottom: 2px solid #ddd;
+color: #444;
+outline: none;
+padding: 1rem 0;
+resize: none;
+}
+
+.form-container h2 {
+font-size: 2.7rem;
+font-weight: 500;
+color: #444;
+margin-bottom: 1rem;
+margin-top: -1.2rem;
+}
+
+.form-container a {
+font-size: 1.3rem;
+}
+
+#footer h2 {
+text-align: center;
+font-size: 1.8rem;
+padding: 2.6rem;
+font-weight: 500;
+color: #fff;
+background: rgb(65, 65, 65);
+}
+
+
+
+@media (max-width: 768px) {
+.navbar {
+  opacity: 0.95;
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 2rem;
+}
+
+
+
+.food-container {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.food-type:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.food-type {
+  box-shadow: 5px 5px 10px 0 #aaa;
+}
+
+.img-container {
+  margin: 0;
+}
+}
+
+@media (max-width: 500px) {
+html {
+  font-size: 65%;
+}
+
+.navbar .menu-items li{
+    font-size: 1.6rem;
+}
+
+.testimonial-container {
+  flex-direction: column;
+  text-align: center;
+}
+
+.food-menu-container img {
+  margin: auto;
+}
+
+.food-menu-item {
+  flex-direction: column;
+  text-align: center;
+}
+
+.form-container {
+  width: 90%;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-img {
+  width: 90%;
+  margin: 3rem auto;
+}
+
+.logo {
+  position: absolute;
+  top: 06px;
+  right: 15px;
+  font-size: 3rem;
+}
+
+.navbar .menu-items li {
+  margin-bottom: 2.5rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+.img-container h3 {
+  font-size: 1.5rem;
+}
+
+.img-container .btn {
+  font-size: 0.7rem;
+}
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+.showcase-area {
+  height: 50vmax;
+}
+}
+
+</style>
+
+</div></div></div></div>
+</body>
+  </section>
+  </main>
+  
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Fruitition</span></strong>. All Rights Reserved
+    </div>
+
+    <div class="credits">
+       Designed by <a href="">Amina Ashraf,  
+        Anu Anna Baby, 
+        Elsa Anju Siby</a>
+    </div>
+  </footer>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="static/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="static/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="static/assets/vendor/quill/quill.min.js"></script>
+  <script src="static/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="static/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

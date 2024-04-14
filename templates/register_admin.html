@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <style>
+        body {
+            background-color: #666666;
+        }
+    </style>
+</head>
+<body style="background-image: url('https://i0.wp.com/www.sekifarmshawaii.com/wp-content/uploads/2021/09/Screen-Shot-2021-08-31-at-5.05.56-PM.png?fit=1098%2C978&ssl=1');background-repeat: no-repeat;background-size:cover ;">
+<div class="container" >
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center" style="color: red;">Admin Registration</h2>
+                    <form class="mt-4" action="{% url 'adminn' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                          <label for="first_name">First Name <span style="color: red;">*</span></label>
+                          <input class="form-control" type="text" name="first_name" pattern="[A-Za-z]+" title="Please enter your First Name" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="last_name">Last Name (optional)</span></label>
+                          <input class="form-control" type="text" name="last_name" pattern="[A-Za-z]+"title="Please enter your Last Name" >
+                      </div>
+                      <div class="form-group">
+                          <label for="pnm">Mobile Number <span style="color: red;">*</span></label>
+                          <input class="form-control" type="text" name="pnm" pattern="^(?!000)[0-9]{10}$" title="Please enter a valid 10-digit mobile number" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="user_name">User Name <span style="color: red;">*</span></label>
+                          <input type="text" placeholder="User Name" name="user_name" pattern="[A-Za-z0-9]+" title="Please enter a username for login purpose" required>
+
+
+                          <input type="hidden"  name="adminn1" value="admin">
+                      </div>
+                      <div class="form-group">
+                          <label for="email">Email <span style="color: red;">*</span></label>
+                          <input class="form-control" type="text" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="psw">Password <span style="color: red;">*</span></label>
+                          <input class="form-control" type="password" name="psw" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must have at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character (@ $ ! % * ? &)" required>
+
+                      </div>
+                      
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">Sign Up</button>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        <p>Already a member? <a href="{% url 'login' %}">Sign in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
