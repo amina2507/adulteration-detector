@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-4hhl-xw1du)2u$^++)yczgr+_)2_sepdy(^g4la^)bj(x!a=oq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 DEBUG = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -128,9 +129,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # for collectstatic
+
+# Optional: if you still want to keep STATICFILES_DIRS
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
 
 # Media files (Uploaded user files)
 MEDIA_URL = '/media/uploads/'

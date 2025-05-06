@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ripeness_detector
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn ripeness_detector.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: ripeness_detector.settings
+      - key: PYTHON_VERSION
+        value: 3.10
+
