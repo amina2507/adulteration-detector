@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: ripeness_detector
+    name: adulteration-detector
     runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn ripeness_detector.wsgi:application
@@ -9,4 +9,5 @@ services:
         value: ripeness_detector.settings
       - key: PYTHON_VERSION
         value: 3.10
+    autoDeploy: true
 
