@@ -2,12 +2,14 @@ services:
   - type: web
     name: adulteration-detector
     runtime: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+      python manage.py migrate
     startCommand: gunicorn ripeness_detector.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: ripeness_detector.settings
       - key: PYTHON_VERSION
-        value: 3.10
+        value: 3.11
     autoDeploy: true
-
