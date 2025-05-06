@@ -117,6 +117,7 @@ python-ipware==2.0.1
 python3-openid==3.2.0
 pytweening==1.0.7
 pytz==2023.3.post1
+pywin32==306
 pywin32-ctypes==0.2.2
 PyYAML==6.0.1
 pyzmq==25.1.2
